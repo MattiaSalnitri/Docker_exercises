@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: myfirstservice
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: mypod
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myfirstdepl
+spec:
+  replicas: 3
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: mypod
+  template:
+    metadata:
+      labels:
+        app: mypod
+    spec:
+      containers:
+      - name: myfirstimage
+        image: mattiasalnitri/myfirstimage:1
+        ports:
+        - containerPort: 8080

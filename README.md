@@ -1,1 +1,1 @@
-# BIP_docker
+# Examples of docker deployment for Cefriel

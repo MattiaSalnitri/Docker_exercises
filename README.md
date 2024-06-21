@@ -1,1 +1,1 @@
-# Examples of docker deployment for Cefriel
+# Examples of docker deployment
